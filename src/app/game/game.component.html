@@ -1,0 +1,3 @@
+<app-board #board [spinValue]="spinValue" [word]="selectedWord" (letterClicked)="letterClicked($event)"></app-board>
+<app-score [players]="players" (playGame)="playGame($event)"></app-score>
+<app-wheel *ngIf="showSpin" (spinComplete)="spinComplete($event)"></app-wheel>

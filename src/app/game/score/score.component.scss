@@ -1,0 +1,15 @@
+.add-player {
+  width: 200px;
+}
+
+.players {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+}
+
+.player--name.has-turn {
+  color: red;
+  font-weight: bold;
+}

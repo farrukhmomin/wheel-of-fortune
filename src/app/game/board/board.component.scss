@@ -1,0 +1,46 @@
+.guess-word {
+  margin: 50px auto;
+  width: 500px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+}
+
+.points-won {
+  text-align: center;
+  font-size: 20px;
+  color: green;
+}
+
+.word {
+  margin: 10px 25px;
+  font-size: 40px;
+  text-transform: uppercase;
+  display: flex;
+}
+
+.letters {
+  background-color: rgba(0, 0, 0, .4);
+  width: 45px;
+  height: 64px;
+  margin: 0 2px;
+  display: inline-block;
+  text-align: center;
+}
+
+.alphabets {
+  list-style: none;
+  width: 650px;
+  margin: 50px auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  li button {
+    margin: 10px;
+    width: 40px;
+  }
+}
