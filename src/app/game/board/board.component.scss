@@ -16,15 +16,15 @@
 
 .word {
   margin: 10px 25px;
-  font-size: 40px;
+  font-size: 100px;
   text-transform: uppercase;
   display: flex;
 }
 
 .letters {
-  background-color: rgba(0, 0, 0, .4);
-  width: 45px;
-  height: 64px;
+  background-color: rgba(0, 0, 0, .1);
+  width: 145px;
+  height: 164px;
   margin: 0 2px;
   display: inline-block;
   text-align: center;
@@ -41,6 +41,14 @@
 
   li button {
     margin: 10px;
-    width: 40px;
+    display: none;
   }
+}
+
+.btn-lg {
+  padding: 0.5rem 2rem;
+  font-size: 3.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
 }

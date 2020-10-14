@@ -12,31 +12,41 @@
   $: {{pointsWon}}
 </div>
 
-<ul class="alphabets">
-  <li><button (click)="showLetter('q', $event.target)" class="btn btn-primary" type="button">q</button></li>
-  <li><button (click)="showLetter('w', $event.target)" class="btn btn-primary" type="button">w</button></li>
-  <li><button (click)="showLetter('e', $event.target)" class="btn btn-primary" type="button">e</button></li>
-  <li><button (click)="showLetter('r', $event.target)" class="btn btn-primary" type="button">r</button></li>
-  <li><button (click)="showLetter('t', $event.target)" class="btn btn-primary" type="button">t</button></li>
-  <li><button (click)="showLetter('y', $event.target)" class="btn btn-primary" type="button">y</button></li>
-  <li><button (click)="showLetter('u', $event.target)" class="btn btn-primary" type="button">u</button></li>
-  <li><button (click)="showLetter('i', $event.target)" class="btn btn-primary" type="button">i</button></li>
-  <li><button (click)="showLetter('o', $event.target)" class="btn btn-primary" type="button">o</button></li>
-  <li><button (click)="showLetter('p', $event.target)" class="btn btn-primary" type="button">p</button></li>
-  <li><button (click)="showLetter('a', $event.target)" class="btn btn-primary" type="button">a</button></li>
-  <li><button (click)="showLetter('s', $event.target)" class="btn btn-primary" type="button">s</button></li>
-  <li><button (click)="showLetter('d', $event.target)" class="btn btn-primary" type="button">d</button></li>
-  <li><button (click)="showLetter('f', $event.target)" class="btn btn-primary" type="button">f</button></li>
-  <li><button (click)="showLetter('g', $event.target)" class="btn btn-primary" type="button">g</button></li>
-  <li><button (click)="showLetter('h', $event.target)" class="btn btn-primary" type="button">h</button></li>
-  <li><button (click)="showLetter('j', $event.target)" class="btn btn-primary" type="button">j</button></li>
-  <li><button (click)="showLetter('k', $event.target)" class="btn btn-primary" type="button">k</button></li>
-  <li><button (click)="showLetter('l', $event.target)" class="btn btn-primary" type="button">l</button></li>
-  <li><button (click)="showLetter('z', $event.target)" class="btn btn-primary" type="button">z</button></li>
-  <li><button (click)="showLetter('x', $event.target)" class="btn btn-primary" type="button">x</button></li>
-  <li><button (click)="showLetter('c', $event.target)" class="btn btn-primary" type="button">c</button></li>
-  <li><button (click)="showLetter('v', $event.target)" class="btn btn-primary" type="button">v</button></li>
-  <li><button (click)="showLetter('b', $event.target)" class="btn btn-primary" type="button">b</button></li>
-  <li><button (click)="showLetter('n', $event.target)" class="btn btn-primary" type="button">n</button></li>
-  <li><button (click)="showLetter('m', $event.target)" class="btn btn-primary" type="button">m</button></li>
+<ul class="alphabets" *ngIf="guessWords.length>0">
+  <li><button class="letter-1 btn btn-lg btn-primary" (click)="showLetter('1', $event.target)" type="button">1</button></li>
+  <li><button class="letter-2 btn btn-lg btn-primary" (click)="showLetter('2', $event.target)" type="button">2</button></li>
+  <li><button class="letter-3 btn btn-lg btn-primary" (click)="showLetter('3', $event.target)" type="button">3</button></li>
+  <li><button class="letter-4 btn btn-lg btn-primary" (click)="showLetter('4', $event.target)" type="button">4</button></li>
+  <li><button class="letter-5 btn btn-lg btn-primary" (click)="showLetter('5', $event.target)" type="button">5</button></li>
+  <li><button class="letter-6 btn btn-lg btn-primary" (click)="showLetter('6', $event.target)" type="button">6</button></li>
+  <li><button class="letter-7 btn btn-lg btn-primary" (click)="showLetter('7', $event.target)" type="button">7</button></li>
+  <li><button class="letter-8 btn btn-lg btn-primary" (click)="showLetter('8', $event.target)" type="button">8</button></li>
+  <li><button class="letter-9 btn btn-lg btn-primary" (click)="showLetter('9', $event.target)" type="button">9</button></li>
+  <li><button class="letter-0 btn btn-lg btn-primary" (click)="showLetter('0', $event.target)" type="button">0</button></li>
+  <li><button class="letter-q btn btn-lg btn-primary" (click)="showLetter('q', $event.target)" type="button">q</button></li>
+  <li><button class="letter-w btn btn-lg btn-primary" (click)="showLetter('w', $event.target)" type="button">w</button></li>
+  <li><button class="letter-e btn btn-lg btn-primary" (click)="showLetter('e', $event.target)" type="button">e</button></li>
+  <li><button class="letter-r btn btn-lg btn-primary" (click)="showLetter('r', $event.target)" type="button">r</button></li>
+  <li><button class="letter-t btn btn-lg btn-primary" (click)="showLetter('t', $event.target)" type="button">t</button></li>
+  <li><button class="letter-y btn btn-lg btn-primary" (click)="showLetter('y', $event.target)" type="button">y</button></li>
+  <li><button class="letter-u btn btn-lg btn-primary" (click)="showLetter('u', $event.target)" type="button">u</button></li>
+  <li><button class="letter-i btn btn-lg btn-primary" (click)="showLetter('i', $event.target)" type="button">i</button></li>
+  <li><button class="letter-o btn btn-lg btn-primary" (click)="showLetter('o', $event.target)" type="button">o</button></li>
+  <li><button class="letter-p btn btn-lg btn-primary" (click)="showLetter('p', $event.target)" type="button">p</button></li>
+  <li><button class="letter-a btn btn-lg btn-primary" (click)="showLetter('a', $event.target)" type="button">a</button></li>
+  <li><button class="letter-s btn btn-lg btn-primary" (click)="showLetter('s', $event.target)" type="button">s</button></li>
+  <li><button class="letter-d btn btn-lg btn-primary" (click)="showLetter('d', $event.target)" type="button">d</button></li>
+  <li><button class="letter-f btn btn-lg btn-primary" (click)="showLetter('f', $event.target)" type="button">f</button></li>
+  <li><button class="letter-g btn btn-lg btn-primary" (click)="showLetter('g', $event.target)" type="button">g</button></li>
+  <li><button class="letter-h btn btn-lg btn-primary" (click)="showLetter('h', $event.target)" type="button">h</button></li>
+  <li><button class="letter-j btn btn-lg btn-primary" (click)="showLetter('j', $event.target)" type="button">j</button></li>
+  <li><button class="letter-k btn btn-lg btn-primary" (click)="showLetter('k', $event.target)" type="button">k</button></li>
+  <li><button class="letter-l btn btn-lg btn-primary" (click)="showLetter('l', $event.target)" type="button">l</button></li>
+  <li><button class="letter-z btn btn-lg btn-primary" (click)="showLetter('z', $event.target)" type="button">z</button></li>
+  <li><button class="letter-x btn btn-lg btn-primary" (click)="showLetter('x', $event.target)" type="button">x</button></li>
+  <li><button class="letter-c btn btn-lg btn-primary" (click)="showLetter('c', $event.target)" type="button">c</button></li>
+  <li><button class="letter-v btn btn-lg btn-primary" (click)="showLetter('v', $event.target)" type="button">v</button></li>
+  <li><button class="letter-b btn btn-lg btn-primary" (click)="showLetter('b', $event.target)" type="button">b</button></li>
+  <li><button class="letter-n btn btn-lg btn-primary" (click)="showLetter('n', $event.target)" type="button">n</button></li>
+  <li><button class="letter-m btn btn-lg btn-primary" (click)="showLetter('m', $event.target)" type="button">m</button></li>
 </ul>

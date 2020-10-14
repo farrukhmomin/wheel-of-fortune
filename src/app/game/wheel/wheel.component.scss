@@ -3,6 +3,23 @@
 }
 
 .wrapper {
-  width: 400px;
+  width: 436px;
   text-align: center;
+  position: relative;
+}
+
+.wheel-of-fortune {
+  background: url(/assets/images/fortune_wheel_back.png) no-repeat;
+  padding-top: 74px;
+  padding-left: 2px;
+  width: 438px;
+}
+
+.btn {
+  position: absolute;
+  top: 42%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  left: 145.047px;
 }

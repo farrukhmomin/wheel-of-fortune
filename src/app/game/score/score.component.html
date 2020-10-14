@@ -1,5 +1,5 @@
 <div class="add-player" *ngIf="gameStart===false">
-  <input class="form-control" [formControl]="player">
+  <input placeholder="Player Name" class="form-control" [formControl]="player">
   <button type="button" class="btn btn-primary" (click)="addPlayer()">Add Player</button>
 </div>
 

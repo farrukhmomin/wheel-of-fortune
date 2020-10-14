@@ -7,12 +7,15 @@ import { ScoreComponent } from './score/score.component';
 import { WheelComponent } from './wheel/wheel.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { GameService } from './game.service';
+import { WheelDirective } from './wheel/wheel.directive';
 
 const routes: Routes = [{ path: '', component: GameComponent }];
 
 @NgModule({
   imports: [RouterModule, CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, HttpClientModule],
   exports: [RouterModule],
-  declarations: [GameComponent, BoardComponent, ScoreComponent, WheelComponent]
+  providers: [GameService],
+  declarations: [GameComponent, BoardComponent, ScoreComponent, WheelComponent, WheelDirective]
 })
 export class GameModule { }

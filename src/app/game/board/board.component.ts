@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef, HostListener } from '@angular/core';
 import { playBuzzer, playWordFound, playWin } from 'src/app/common/sound';
 
 @Component({
@@ -10,7 +10,6 @@ export class BoardComponent implements OnInit, OnChanges {
 
   @Input() word = 'fuck you';
   @Input() spinValue;
-
   @Output() letterClicked = new EventEmitter();
 
   guessWords: any[] = [];
@@ -24,6 +23,7 @@ export class BoardComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.word) {
       this.generateBoard();
+      this.spinValue = undefined;
     }
   }
 
@@ -65,18 +65,21 @@ export class BoardComponent implements OnInit, OnChanges {
         }
       });
     });
-    e.setAttribute('disabled', 'disabled');
+    e.setAttribute('style', 'display:block');
 
     if (wordFound === false) {
       playBuzzer();
-      this.letterClicked.emit({ status: 'lose turn' });
+      this.letterClicked.emit({ status: 'LOOSE TURN' });
       this.pointsWon = 0;
+      this.spinValue = undefined;
     } else {
       this.pointsWon += this.spinValue * letterFoundInGame;
 
       if (this.totalLetterFound >= this.totalLetters) {
         playWin();
-        this.letterClicked.emit({ status: 'win', points: this.pointsWon });
+        setTimeout(() => {
+          this.letterClicked.emit({ status: 'win', points: this.pointsWon });
+        }, 3000);
       }
       else {
         playWordFound();
@@ -87,8 +90,21 @@ export class BoardComponent implements OnInit, OnChanges {
 
   enableAllButtons(): void {
     this.elementRef.nativeElement.querySelectorAll('.alphabets button').forEach(element => {
-      element.removeAttribute('disabled');
+      element.removeAttribute('style');
     });
   }
+
+  @HostListener('document:keypress', ['$event'])
+  keyboardEvent(event: KeyboardEvent): void {
+    if (this.spinValue) {
+      const element = this.elementRef.nativeElement.querySelector('.letter-' + event.key);
+      if (element.getAttribute('disabled') === 'disabled') {
+        alert('Spin the wheel!')
+        return;
+      }
+      this.showLetter(event.key, element);
+    }
+  }
+
 
 }
