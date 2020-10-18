@@ -19,9 +19,9 @@ export class WheelDirective implements AfterViewInit {
 
     ngAfterViewInit(): void {
         this.theWheel = new Winwheel({
-            outerRadius: 212,        // Set outer radius so wheel fits inside the background.
+            outerRadius: 412,        // Set outer radius so wheel fits inside the background.
             innerRadius: 75,         // Make wheel hollow so segments dont go all way to center.
-            textFontSize: 24,         // Set default font size for the segments.
+            textFontSize: 54,         // Set default font size for the segments.
             textOrientation: 'vertical', // Make text vertial so goes down from the outside of wheel.
             textAlignment: 'outer',    // Align text to outside of wheel.
             numSegments: 24,         // Specify number of segments.
@@ -30,27 +30,27 @@ export class WheelDirective implements AfterViewInit {
                     { fillStyle: '#ee1c24', text: '300' },
                     { fillStyle: '#3cb878', text: '450' },
                     { fillStyle: '#f6989d', text: '600' },
+                    { fillStyle: '#000000', text: 'BANKRUPT', textFontSize: 30, textFillStyle: '#ffffff' },
                     { fillStyle: '#00aef0', text: '750' },
                     { fillStyle: '#f26522', text: '500' },
-                    { fillStyle: '#000000', text: 'BANKRUPT', textFontSize: 16, textFillStyle: '#ffffff' },
                     { fillStyle: '#e70697', text: '3000' },
                     { fillStyle: '#fff200', text: '600' },
                     { fillStyle: '#f6989d', text: '700' },
+                    { fillStyle: '#ffffff', text: 'LOOSE TURN', textFontSize: 30 },
                     { fillStyle: '#ee1c24', text: '350' },
                     { fillStyle: '#3cb878', text: '500' },
                     { fillStyle: '#f26522', text: '800' },
-                    { fillStyle: '#ffffff', text: 'LOOSE TURN', textFontSize: 12 },
                     { fillStyle: '#fff200', text: '400' },
                     { fillStyle: '#00aef0', text: '650' },
                     { fillStyle: '#ee1c24', text: '1000' },
+                    { fillStyle: '#000000', text: 'BANKRUPT', textFontSize: 30, textFillStyle: '#ffffff' },
                     { fillStyle: '#f6989d', text: '500' },
                     { fillStyle: '#f26522', text: '400' },
                     { fillStyle: '#3cb878', text: '900' },
-                    { fillStyle: '#000000', text: 'BANKRUPT', textFontSize: 16, textFillStyle: '#ffffff' },
                     { fillStyle: '#a186be', text: '600' },
                     { fillStyle: '#fff200', text: '700' },
-                    { fillStyle: '#00aef0', text: '800' },
-                    { fillStyle: '#ffffff', text: 'LOOSE TURN', textFontSize: 12 }
+                    { fillStyle: '#ffffff', text: 'LOOSE TURN', textFontSize: 30 },
+                    { fillStyle: '#00aef0', text: '800' }
                 ],
             animation:           // Specify the animation to use.
             {
@@ -76,15 +76,16 @@ export class WheelDirective implements AfterViewInit {
     }
 
     startSpin(): void {
+        const power = (Math.random() * 3) + 1;
         // Ensure that spinning can't be clicked again while already running.
         if (this.wheelSpinning === false) {
             // Based on the power level selected adjust the number of spins for the wheel, the more times is has
             // to rotate with the duration of the animation the quicker the wheel spins.
-            if (this.wheelPower === 1) {
+            if (this.wheelPower === power) {
                 this.theWheel.animation.spins = 3;
-            } else if (this.wheelPower === 2) {
+            } else if (this.wheelPower === power) {
                 this.theWheel.animation.spins = 6;
-            } else if (this.wheelPower === 3) {
+            } else if (this.wheelPower === power) {
                 this.theWheel.animation.spins = 10;
             }
 
